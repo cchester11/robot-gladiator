@@ -67,6 +67,8 @@ var fight = function(enemyName) {
 
             playerMoney = playerMoney - 10;
 
+            shop();
+
             break;
         }
     }
@@ -87,6 +89,12 @@ var fight = function(enemyName) {
         console.log(playerMoney);
         console.log(playerHealth);
 
+        var storeConfirm = window.confirm("The fight is over, visit the store before the next round?");
+
+        if (storeConfirm) {
+            shop();
+        }
+
         break;
     } else {
         window.alert(enemyName + " has " + enemyHealth + " left!");
@@ -101,13 +109,39 @@ var fight = function(enemyName) {
     if (playerHealth <= 0) {
         window.alert(playerName + " has died!");
 
-        playerMoney = playerMoney - 10;
-
         break;
     } else {
         window.alert(playerName + " still has " + playerHealth + " left!");
     }
     
+    }
+};
+
+var shop = function() {
+    var shopOptionPrompt = window.prompt(
+        "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice.");
+
+    switch (shopOptionPrompt) {
+        case 'refill':
+        case 'REFILL':
+            window.alert("Refilling player's health by 20 for 7 dollars.");
+            playerHealth += 20;
+            playerMoney -= 7;
+            break;
+        case 'upgrade':
+        case 'UPGRADE':
+            window.alert("Upgrading player's attack by 6 for 7 dollars.");
+            playerAttack += 6;
+            playerMoney -= 7;
+            break;
+        case 'leave':
+        case 'LEAVE':
+            window.alert("You are leaving the store.");
+            break;
+        default: 
+        window.alert("Try again.");
+        shop();
+        break;
     }
 };
 

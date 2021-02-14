@@ -4,7 +4,7 @@ var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 100;
 
-var enemyNames = ['Roborto', 'Amy Android', 'Thomas T', 'Goku'];
+var enemyNames = ['Roborto', 'Amy Android', 'Thomas T', 'Gokuf'];
 var enemyHealth = 50;
 var enemyAttack = 12;
 

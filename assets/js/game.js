@@ -4,12 +4,13 @@ var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 100;
 
-var enemyNames = ['Roborto', 'Amy Android', 'Thomas T'];
+var enemyNames = ['Roborto', 'Amy Android', 'Thomas T', 'Goku'];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
 var startGame = function() {
     //reset player stats
+    //debugger;
     playerHealth = 100;
     playerAttack = 10;
     playerMoney = 100;
@@ -19,11 +20,13 @@ for (var i = 0; i < enemyNames.length; i++) {
 
         window.alert("Robot Gladiator's Round" + (i + 1));
 
-        var pickedName = enemyNames[i];
+        let pickedName = enemyNames[i];
 
         enemyHealth = 50;
 
         fight(pickedName);
+
+        console.log(playerHealth, playerAttack, playerMoney);
 
     } else {
         window.alert("You've died!");
@@ -71,7 +74,7 @@ var fight = function(enemyName) {
 
             break;
         }
-    }
+    } else {
 
     enemyHealth = enemyHealth - playerAttack;
 
@@ -115,6 +118,7 @@ var fight = function(enemyName) {
     }
     
     }
+}
 };
 
 var shop = function() {

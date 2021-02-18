@@ -1,11 +1,17 @@
 //global variables. (Global goes to top of page)
+var randomNumber = function() {
+    var value = Math.floor(Math.random()*30)+40;
+
+    return value;
+};
+
 var playerName = window.prompt("What is your robot's name?");
 var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 100;
 
 var enemyNames = ['Roborto', 'Amy Android', 'Thomas T', 'Gokuf'];
-var enemyHealth = 50;
+var enemyHealth = randomNumber();
 var enemyAttack = 12;
 
 var startGame = function() {
@@ -22,11 +28,12 @@ for (var i = 0; i < enemyNames.length; i++) {
 
         let pickedName = enemyNames[i];
 
-        enemyHealth = 50;
+        enemyHealth = randomNumber();
 
         fight(pickedName);
 
         console.log(playerHealth, playerAttack, playerMoney);
+        console.log(pickedName + " has " +  randomNumber());
 
     } else {
         window.alert("You've died!");
@@ -68,7 +75,7 @@ var fight = function(enemyName) {
 
             window.alert(playerName + " has skipped the fight!");
 
-            playerMoney = playerMoney - 10;
+            playerMoney = Math.max(0, playerMoney - 10);
 
             shop();
 
@@ -76,7 +83,7 @@ var fight = function(enemyName) {
         }
     } else {
 
-    enemyHealth = enemyHealth - playerAttack;
+    enemyHealth = Math.max(0, enemyHealth - playerAttack);
 
     console.log(
         playerName + ' attacked ' + enemyName + '. ' + enemyName + ' now has ' + enemyHealth + ' health remaining.'
@@ -103,7 +110,7 @@ var fight = function(enemyName) {
         window.alert(enemyName + " has " + enemyHealth + " left!");
     }
 
-    playerHealth = playerHealth - enemyAttack;
+    playerHealth = Math.max(0, playerHealth - enemyAttack);
 
     console.log(
         enemyName + ' attacked ' + playerName + '. ' + playerName + ' now has ' + playerHealth + ' health remaining.'

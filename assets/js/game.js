@@ -28,7 +28,7 @@ for (var i = 0; i < enemyNames.length; i++) {
 
         let pickedName = enemyNames[i];
 
-        enemyHealth = randomNumber();git 
+        enemyHealth = randomNumber();
 
         fight(pickedName);
 
